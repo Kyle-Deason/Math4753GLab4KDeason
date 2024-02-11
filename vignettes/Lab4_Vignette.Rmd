@@ -86,3 +86,9 @@ summary(mybiplot(x = mpg, k = 2))
 mpg <- epa$MPG
 summary(mybiplot(x = mpg, k = 3))
 ```
+
+# Git
+
+To clone this package from git use the following URL:
+
+https://github.com/Kyle-Deason/Math4753GLab4KDeason.git

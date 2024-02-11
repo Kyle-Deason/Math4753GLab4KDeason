@@ -6,7 +6,7 @@
 #' @format
 #' A data frame with 100 rows and 1 columns:
 #' \describe{
-#'   \item{MPG}Miles Per Gallon}
+#'   \item{MPG}{Miles Per Gallon}
 #'
 #'   ...
 #' }

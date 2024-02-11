@@ -1,0 +1,88 @@
+---
+title: "Lab4_Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Lab4_Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Math4753GKDeasonLab4S3)
+```
+
+
+# The Package
+
+This package contains 3 functions. 
+
+  1. mybiplot
+  
+   _mybiplot_ serves as an S3 constructor. It has 2 arguments (x = double, k = double) where x is a vector of continuous quantitative values and k is a vector constant. It takes the vector passed to x and transforms it into a categorical variable named "inout". When x is within k standard deviations of the mean of x, inout returns "in". When x is greater than k standard deviations of the mean of x, inout returns "outu". Otherwise inout returns "outl". Additionally, _mybiplot_ assigns the class "math4753GbiplotKDeason" to the new object.
+    _Examples:_
+```{r}
+mpg <- epa$MPG
+unclass(mybiplot(x = mpg[1:5], k = 1))
+class(mybiplot(x = mpg[1:5], k = 1))
+```
+
+```{r}
+mpg <- epa$MPG
+unclass(mybiplot(x = mpg[6:10], k = 2))
+class(mybiplot(x = mpg[6:10], k = 2))
+```
+```{r}
+mpg <- epa$MPG
+unclass(mybiplot(x = mpg[11:15], k = 3))
+class(mybiplot(x = mpg[11:15], k = 3))
+```
+
+    
+    
+  2. print.math4753biplotKDeason
+  
+  _print.math4753biplotKDeason_ is a method for the print generic. It takes the S3 constructed from _mybiplot_ and returns a histogram of the data passed to x.
+  
+  _Examples:_
+```{r}
+mpg <- epa$MPG
+print(mybiplot(x = mpg, k = 1))
+```
+
+```{r}
+mpg <- epa$MPG
+print(mybiplot(x = mpg, k = 2))
+```
+
+```{r}
+mpg <- epa$MPG
+print(mybiplot(x = mpg, k = 3))
+```
+      
+      
+  3. summary.math4753biplotKDeason
+  
+  _sumary.math4753biplotKDeason_ is a method for the summary generic. It takes the S3 constructed from _mybiplot_ and returns a summary of the data passed to x, grouped by the new inout variable. This summary includes [mean, median, IQR, and n].
+  
+  _Examples_
+```{r}
+mpg <- epa$MPG
+summary(mybiplot(x = mpg, k = 1))
+```
+
+```{r}
+mpg <- epa$MPG
+summary(mybiplot(x = mpg, k = 2))
+```
+
+```{r}
+mpg <- epa$MPG
+summary(mybiplot(x = mpg, k = 3))
+```
